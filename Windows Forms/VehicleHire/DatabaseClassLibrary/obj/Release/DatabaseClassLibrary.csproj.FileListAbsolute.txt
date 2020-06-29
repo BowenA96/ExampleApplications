@@ -1,0 +1,11 @@
+C:\Users\bowen\Documents\StaffsUniDocs\StaffsYear4\EAIRLSS\Assignment\VehicleHire\DatabaseClassLibrary\bin\Release\DatabaseClassLibrary.dll.config
+C:\Users\bowen\Documents\StaffsUniDocs\StaffsYear4\EAIRLSS\Assignment\VehicleHire\DatabaseClassLibrary\bin\Release\DatabaseClassLibrary.dll
+C:\Users\bowen\Documents\StaffsUniDocs\StaffsYear4\EAIRLSS\Assignment\VehicleHire\DatabaseClassLibrary\bin\Release\DatabaseClassLibrary.pdb
+C:\Users\bowen\Documents\StaffsUniDocs\StaffsYear4\EAIRLSS\Assignment\VehicleHire\DatabaseClassLibrary\bin\Release\EntityFramework.dll
+C:\Users\bowen\Documents\StaffsUniDocs\StaffsYear4\EAIRLSS\Assignment\VehicleHire\DatabaseClassLibrary\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\bowen\Documents\StaffsUniDocs\StaffsYear4\EAIRLSS\Assignment\VehicleHire\DatabaseClassLibrary\bin\Release\EntityFramework.xml
+C:\Users\bowen\Documents\StaffsUniDocs\StaffsYear4\EAIRLSS\Assignment\VehicleHire\DatabaseClassLibrary\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\bowen\Documents\StaffsUniDocs\StaffsYear4\EAIRLSS\Assignment\VehicleHire\DatabaseClassLibrary\obj\Release\DatabaseClassLibrary.csprojAssemblyReference.cache
+C:\Users\bowen\Documents\StaffsUniDocs\StaffsYear4\EAIRLSS\Assignment\VehicleHire\DatabaseClassLibrary\obj\Release\DatabaseClassLibrary.csproj.CopyComplete
+C:\Users\bowen\Documents\StaffsUniDocs\StaffsYear4\EAIRLSS\Assignment\VehicleHire\DatabaseClassLibrary\obj\Release\DatabaseClassLibrary.dll
+C:\Users\bowen\Documents\StaffsUniDocs\StaffsYear4\EAIRLSS\Assignment\VehicleHire\DatabaseClassLibrary\obj\Release\DatabaseClassLibrary.pdb

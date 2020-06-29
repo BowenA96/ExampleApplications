@@ -1,0 +1,11 @@
+C:\Users\bowen\Documents\StaffsUniDocs\StaffsYear4\EAIRLSS\Assignment\VehicleHire\ClassLibrary\bin\Debug\ClassLibrary.dll
+C:\Users\bowen\Documents\StaffsUniDocs\StaffsYear4\EAIRLSS\Assignment\VehicleHire\ClassLibrary\bin\Debug\ClassLibrary.pdb
+C:\Users\bowen\Documents\StaffsUniDocs\StaffsYear4\EAIRLSS\Assignment\VehicleHire\ClassLibrary\obj\Debug\ClassLibrary.csprojAssemblyReference.cache
+C:\Users\bowen\Documents\StaffsUniDocs\StaffsYear4\EAIRLSS\Assignment\VehicleHire\ClassLibrary\obj\Debug\ClassLibrary.dll
+C:\Users\bowen\Documents\StaffsUniDocs\StaffsYear4\EAIRLSS\Assignment\VehicleHire\ClassLibrary\obj\Debug\ClassLibrary.pdb
+C:\Users\bowen\Documents\git\Assignment2EAIRLSS\Assignment2EAIRLSS\VehicleHire\ClassLibrary\bin\Debug\ClassLibrary.dll
+C:\Users\bowen\Documents\git\Assignment2EAIRLSS\Assignment2EAIRLSS\VehicleHire\ClassLibrary\bin\Debug\ClassLibrary.pdb
+C:\Users\bowen\Documents\git\Assignment2EAIRLSS\Assignment2EAIRLSS\VehicleHire\ClassLibrary\obj\Debug\ClassLibrary.csprojAssemblyReference.cache
+C:\Users\bowen\Documents\git\Assignment2EAIRLSS\Assignment2EAIRLSS\VehicleHire\ClassLibrary\obj\Debug\ClassLibrary.dll
+C:\Users\bowen\Documents\git\Assignment2EAIRLSS\Assignment2EAIRLSS\VehicleHire\ClassLibrary\obj\Debug\ClassLibrary.pdb
+C:\Users\bowen\Documents\git\Assignment2EAIRLSS\Assignment2EAIRLSS\VehicleHire\ClassLibrary\obj\Debug\ClassLibrary.csproj.CoreCompileInputs.cache

@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DatabaseClassLibrary" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="Username" />
+    </Key>
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Email" />
+    </Key>
+    <Property Name="Email" Type="String" MaxLength="254" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Blacklisted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="VehicleBookings" Relationship="Self.FK_VehicleBooking_Customer" FromRole="Customer" ToRole="VehicleBooking" />
+  </EntityType>
+  <EntityType Name="Equipment">
+    <Key>
+      <PropertyRef Name="EquipmentId" />
+    </Key>
+    <Property Name="EquipmentId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Amount" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="EquipmentBookings" Relationship="Self.FK_EquipmentBooking_Equipment" FromRole="Equipment" ToRole="EquipmentBooking" />
+  </EntityType>
+  <EntityType Name="EquipmentBooking">
+    <Key>
+      <PropertyRef Name="EquipmentBookingId" />
+    </Key>
+    <Property Name="EquipmentBookingId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VehicleBookingId" Type="Int64" Nullable="false" />
+    <Property Name="EquipmentId" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="Equipment" Relationship="Self.FK_EquipmentBooking_Equipment" FromRole="EquipmentBooking" ToRole="Equipment" />
+    <NavigationProperty Name="VehicleBooking" Relationship="Self.FK_EquipmentBooking_VehicleBooking" FromRole="EquipmentBooking" ToRole="VehicleBooking" />
+  </EntityType>
+  <EntityType Name="Vehicle">
+    <Key>
+      <PropertyRef Name="VehicleId" />
+    </Key>
+    <Property Name="VehicleId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Engine" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Gearbox" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PricePerDay" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="NumberAvailable" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="VehicleBookings" Relationship="Self.FK_VehicleBooking_Vehicle" FromRole="Vehicle" ToRole="VehicleBooking" />
+  </EntityType>
+  <EntityType Name="VehicleBooking">
+    <Key>
+      <PropertyRef Name="VehicleBookingId" />
+    </Key>
+    <Property Name="VehicleBookingId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" MaxLength="254" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VehicleId" Type="Int64" Nullable="false" />
+    <Property Name="StartDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EndDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TotalPrice" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Collected" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK_VehicleBooking_Customer" FromRole="VehicleBooking" ToRole="Customer" />
+    <NavigationProperty Name="EquipmentBookings" Relationship="Self.FK_EquipmentBooking_VehicleBooking" FromRole="VehicleBooking" ToRole="EquipmentBooking" />
+    <NavigationProperty Name="Vehicle" Relationship="Self.FK_VehicleBooking_Vehicle" FromRole="VehicleBooking" ToRole="Vehicle" />
+  </EntityType>
+  <Association Name="FK_VehicleBooking_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="VehicleBooking" Type="Self.VehicleBooking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="Email" />
+      </Principal>
+      <Dependent Role="VehicleBooking">
+        <PropertyRef Name="Email" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EquipmentBooking_Equipment">
+    <End Role="Equipment" Type="Self.Equipment" Multiplicity="1" />
+    <End Role="EquipmentBooking" Type="Self.EquipmentBooking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Equipment">
+        <PropertyRef Name="EquipmentId" />
+      </Principal>
+      <Dependent Role="EquipmentBooking">
+        <PropertyRef Name="EquipmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EquipmentBooking_VehicleBooking">
+    <End Role="VehicleBooking" Type="Self.VehicleBooking" Multiplicity="1" />
+    <End Role="EquipmentBooking" Type="Self.EquipmentBooking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VehicleBooking">
+        <PropertyRef Name="VehicleBookingId" />
+      </Principal>
+      <Dependent Role="EquipmentBooking">
+        <PropertyRef Name="VehicleBookingId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VehicleBooking_Vehicle">
+    <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="1" />
+    <End Role="VehicleBooking" Type="Self.VehicleBooking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehicle">
+        <PropertyRef Name="VehicleId" />
+      </Principal>
+      <Dependent Role="VehicleBooking">
+        <PropertyRef Name="VehicleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="VehicleHireEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Admins" EntityType="Self.Admin" />
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="Equipments" EntityType="Self.Equipment" />
+    <EntitySet Name="EquipmentBookings" EntityType="Self.EquipmentBooking" />
+    <EntitySet Name="Vehicles" EntityType="Self.Vehicle" />
+    <EntitySet Name="VehicleBookings" EntityType="Self.VehicleBooking" />
+    <AssociationSet Name="FK_VehicleBooking_Customer" Association="Self.FK_VehicleBooking_Customer">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="VehicleBooking" EntitySet="VehicleBookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EquipmentBooking_Equipment" Association="Self.FK_EquipmentBooking_Equipment">
+      <End Role="Equipment" EntitySet="Equipments" />
+      <End Role="EquipmentBooking" EntitySet="EquipmentBookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EquipmentBooking_VehicleBooking" Association="Self.FK_EquipmentBooking_VehicleBooking">
+      <End Role="VehicleBooking" EntitySet="VehicleBookings" />
+      <End Role="EquipmentBooking" EntitySet="EquipmentBookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VehicleBooking_Vehicle" Association="Self.FK_VehicleBooking_Vehicle">
+      <End Role="Vehicle" EntitySet="Vehicles" />
+      <End Role="VehicleBooking" EntitySet="VehicleBookings" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
